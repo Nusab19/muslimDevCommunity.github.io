@@ -15,7 +15,7 @@ const Navbar = () => {
     <MaxWidthWrapper className="flex items-center justify-between px-4 py-4">
       <div className="flex items-center justify-center gap-2">
         <Image
-          src="/images/logo.jpeg"
+          src="images/logo.jpeg"
           alt="Muslim Developers Community"
           width={45}
           height={45}
