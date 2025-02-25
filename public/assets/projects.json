@@ -1,0 +1,52 @@
+[
+    {
+        "name": "quranWarsh",
+        "description": "Quran desktop app for the Warsh reading",
+        "downloadLinks": [
+            {
+                "url": "https://github.com/muslimDevCommunity/quran-warsh/releases/download/1.0.0/quran-warsh_1.0.0_win64.zip",
+                "os": "Windows"
+            },
+            {
+                "url": "https://github.com/muslimDevCommunity/quran-warsh/releases/download/1.0.0/quran-warsh_1.0.0-embedded-pictures_win64.zip",
+                "os": "Windows embedded pictures"
+            },
+            {
+                "url": "https://github.com/muslimDevCommunity/quran-warsh/releases/download/1.0.0/quran-warsh-1.0.0-1.fc41.x86_64.rpm",
+                "os": "RPM"
+            },
+            {
+                "url": "https://github.com/muslimDevCommunity/quran-warsh/releases/download/1.0.0/quran-warsh-1.0.0.deb",
+                "os": "DEB"
+            },
+            {
+                "url": "https://github.com/muslimDevCommunity/quran-warsh/releases/tag/1.0.0",
+                "os": "Release"
+            }
+        ],
+        "projectUrl": null,
+        "sourceCodeUrl": "https://github.com/muslimDevCommunity/quran-warsh"
+    },
+    {
+        "name": "tasbeeh",
+        "description": "Static HTML/CSS/JS to perform tasbeeh",
+        "projectUrl": "https://muslimdevcommunity.github.io/tasbeeh",
+        "sourceCodeUrl": "https://github.com/muslimDevCommunity/tasbeeh"
+    },
+    {
+        "name": "poppingDikr",
+        "description": "An app to display dhikr periodically",
+        "downloadLinks": [
+            {
+                "url": "https://github.com/muslimDevCommunity/PoppingDikr/releases/download/v1.1.2/popping-dikr_v1.1.2_win64.zip",
+                "os": "Windows"
+            },
+            {
+                "url": "https://github.com/muslimDevCommunity/PoppingDikr/releases/tag/v1.1.2",
+                "os": "Release"
+            }
+        ],
+        "projectUrl": null,
+        "sourceCodeUrl": "https://github.com/muslimDevCommunity/PoppingDikr"
+    }
+]
