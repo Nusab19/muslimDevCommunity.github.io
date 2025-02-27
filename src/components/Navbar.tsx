@@ -31,14 +31,14 @@ const Navbar = () => {
   return (
     <MaxWidthWrapper className="flex items-center justify-between px-4 py-4">
       <div className="flex items-center justify-center gap-2">
-        <Image
+        {/* <Image
           src="images/logo.jpeg"
           alt="Muslim Developers Community"
           width={45}
           height={45}
           className="rounded-md"
-        />
-        <span className="text-2xl font-bold tracking-tighter text-[#f7b652]">
+        /> */}
+        <span className="text-2xl font-bold tracking-tighter text-accent">
           MDC
         </span>
       </div>
