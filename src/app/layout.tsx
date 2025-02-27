@@ -11,6 +11,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Muslim Developers Community - MDC",
   description: "A community for Muslim developers to connect, learn, and grow. Join us to learn, share, and grow together.",
+  metadataBase: new URL("https://muslimdevcommunity.github.io/"),
 };
 
 export default function RootLayout({
