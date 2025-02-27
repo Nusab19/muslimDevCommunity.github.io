@@ -9,8 +9,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Muslim Developers Community",
-  description: "A community for Muslim developers to connect, learn, and grow",
+  title: "Muslim Developers Community - MDC",
+  description: "A community for Muslim developers to connect, learn, and grow. Join us to learn, share, and grow together.",
 };
 
 export default function RootLayout({
@@ -20,6 +20,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/images/logo.jepg" />
+        <meta charSet="utf-8" />
+        <meta
+          httpEquiv="last-modified"
+          content={new Date().toISOString().split(":")[0] + ":00:00.000Z"}
+        />
+      </head>
       <body className={`${poppins.className}`}>{children}</body>
     </html>
   );
