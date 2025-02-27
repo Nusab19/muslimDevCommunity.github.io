@@ -103,41 +103,63 @@ const BurgerIcon = ({ isOpen }: { isOpen: boolean }) => (
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
   >
-    <motion.path
-      fill="transparent"
-      strokeWidth="3"
-      stroke="currentColor"
-      strokeLinecap="round"
-      variants={{
-        closed: { d: "M 2 2.5 L 20 2.5" },
-        open: { d: "M 3 16.5 L 17 2.5" },
-      }}
-      animate={isOpen ? "open" : "closed"}
-    />
-    <motion.path
-      fill="transparent"
-      strokeWidth="3"
-      stroke="currentColor"
-      strokeLinecap="round"
-      d="M 2 9.423 L 20 9.423"
-      variants={{
-        closed: { opacity: 1 },
-        open: { opacity: 0 },
-      }}
-      animate={isOpen ? "open" : "closed"}
-      transition={{ duration: 0.1 }}
-    />
-    <motion.path
-      fill="transparent"
-      strokeWidth="3"
-      stroke="currentColor"
-      strokeLinecap="round"
-      variants={{
-        closed: { d: "M 2 16.346 L 20 16.346" },
-        open: { d: "M 3 2.5 L 17 16.346" },
-      }}
-      animate={isOpen ? "open" : "closed"}
-    />
+    {isOpen ? (
+      <>
+        <motion.path
+          key="path1"
+          fill="transparent"
+          strokeWidth="3"
+          stroke="currentColor"
+          strokeLinecap="round"
+          d="M 3 16.5 L 17 2.5"
+        />
+        <motion.path
+          key="path2"
+          fill="transparent"
+          strokeWidth="3"
+          stroke="currentColor"
+          strokeLinecap="round"
+          d="M 2 9.423 L 20 9.423"
+          opacity="0"
+        />
+        <motion.path
+          key="path3"
+          fill="transparent"
+          strokeWidth="3"
+          stroke="currentColor"
+          strokeLinecap="round"
+          d="M 3 2.5 L 17 16.346"
+        />
+      </>
+    ) : (
+      <>
+        <motion.path
+          key="path4"
+          fill="transparent"
+          strokeWidth="3"
+          stroke="currentColor"
+          strokeLinecap="round"
+          d="M 2 2.5 L 20 2.5"
+        />
+        <motion.path
+          key="path5"
+          fill="transparent"
+          strokeWidth="3"
+          stroke="currentColor"
+          strokeLinecap="round"
+          d="M 2 9.423 L 20 9.423"
+          opacity="1"
+        />
+        <motion.path
+          key="path6"
+          fill="transparent"
+          strokeWidth="3"
+          stroke="currentColor"
+          strokeLinecap="round"
+          d="M 2 16.346 L 20 16.346"
+        />
+      </>
+    )}
   </svg>
 );
 
