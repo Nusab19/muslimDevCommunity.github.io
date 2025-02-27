@@ -38,7 +38,7 @@ const Navbar = () => {
           height={45}
           className="rounded-md"
         /> */}
-        <span className="text-2xl font-bold tracking-tighter text-accent">
+        <span className="text-2xl font-black tracking-tighter text-accent">
           MDC
         </span>
       </div>
