@@ -16,6 +16,7 @@ import {
 
 import { TelegramChannelLink, GithubOrgLink } from "@/lib/config";
 import { Separator } from "./ui/separator";
+import React from "react";
 
 const LINKS = {
   Telegram: TelegramChannelLink,
@@ -73,9 +74,8 @@ const Navbar = () => {
           </DrawerDescription>
           <div className="mb-16 mt-8 flex flex-col gap-2 p-2">
             {Object.entries(LINKS).map(([name, url]) => (
-              <>
+              <React.Fragment key={name}>
                 <Button
-                  key={name}
                   variant="ghost"
                   className="justify-start font-mono text-foreground/90"
                   asChild
@@ -85,7 +85,7 @@ const Navbar = () => {
                   </Link>
                 </Button>
                 <Separator />
-              </>
+              </React.Fragment>
             ))}
           </div>
         </DrawerContent>
