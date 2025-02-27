@@ -20,14 +20,23 @@ const Glow: React.FC<GlowProps> = ({
     .map((color, index) => `${color} ${index * 30}%`)
     .join(", ")})`;
 
+  // Extract numeric value for blur (assumes the blur value is in pixels)
+  const blurValue = parseInt(blur, 10) || 40;
+
   return (
     <div
       className={`pointer-events-none absolute overflow-hidden mix-blend-screen ${className}`}
       style={{
         background: gradient,
         opacity: opacity,
-        WebkitFilter: `blur(${blur})`,
+        // Standard CSS filter
         filter: `blur(${blur})`,
+        // Vendor prefixes for various browsers
+        WebkitFilter: `blur(${blur})`,
+        // MozFilter: `blur(${blur})`,
+        // OFilter: `blur(${blur})`,
+        // IE (old versions) filter syntax
+        msFilter: `progid:DXImageTransform.Microsoft.Blur(PixelRadius=${blurValue})`,
       }}
     />
   );
