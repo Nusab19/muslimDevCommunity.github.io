@@ -15,7 +15,6 @@ const Glow: React.FC<GlowProps> = ({
   className = "",
   type = "ellipse",
 }) => {
-  // return <></>
   return (
     <div
       className={`pointer-events-none absolute overflow-hidden ${className}`}
@@ -24,6 +23,8 @@ const Glow: React.FC<GlowProps> = ({
           .map((color, index) => `${color} ${index * 30}%`)
           .join(", ")})`,
         opacity: opacity,
+        // Add both WebkitFilter and filter for Safari compatibility
+        WebkitFilter: `blur(${blur})`,
         filter: `blur(${blur})`,
         mixBlendMode: "screen",
       }}
