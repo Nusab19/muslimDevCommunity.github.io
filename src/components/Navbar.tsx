@@ -3,11 +3,11 @@ import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Button } from "./ui/button";
 
-import { TelegramChannelLink, GithubRepoLink } from "@/lib/config";
+import { TelegramChannelLink, GithubOrgLink } from "@/lib/config";
 
 const LINKS = {
   Telegram: TelegramChannelLink,
-  Github: GithubRepoLink,
+  Github: GithubOrgLink,
 };
 
 const Navbar = () => {

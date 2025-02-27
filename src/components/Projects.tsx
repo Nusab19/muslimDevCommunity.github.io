@@ -70,7 +70,7 @@ export function ProjectCard({
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="downloads">
               <AccordionTrigger className="text-sm py-2">
-                Release
+                Releases
               </AccordionTrigger>
               <AccordionContent>
                 <ul className="space-y-1">
