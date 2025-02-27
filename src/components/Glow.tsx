@@ -35,8 +35,12 @@ const Glow: React.FC<GlowProps> = ({
         WebkitFilter: `blur(${blur})`,
         // MozFilter: `blur(${blur})`,
         // OFilter: `blur(${blur})`,
-        // IE (old versions) filter syntax
+        // IE (legacy) syntax
         msFilter: `progid:DXImageTransform.Microsoft.Blur(PixelRadius=${blurValue})`,
+        // Force hardware acceleration in Safari
+        transform: "translate3d(0,0,0)",
+        WebkitTransform: "translate3d(0,0,0)",
+        willChange: "filter",
       }}
     />
   );
