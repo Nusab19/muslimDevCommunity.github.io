@@ -15,18 +15,19 @@ const Glow: React.FC<GlowProps> = ({
   className = "",
   type = "ellipse",
 }) => {
+  // Generate the radial gradient background
+  const gradient = `radial-gradient(${type}, ${colors
+    .map((color, index) => `${color} ${index * 30}%`)
+    .join(", ")})`;
+
   return (
     <div
-      className={`pointer-events-none absolute overflow-hidden ${className}`}
+      className={`pointer-events-none absolute overflow-hidden mix-blend-screen ${className}`}
       style={{
-        background: `radial-gradient(${type}, ${colors
-          .map((color, index) => `${color} ${index * 30}%`)
-          .join(", ")})`,
+        background: gradient,
         opacity: opacity,
-        // Add both WebkitFilter and filter for Safari compatibility
         WebkitFilter: `blur(${blur})`,
         filter: `blur(${blur})`,
-        mixBlendMode: "screen",
       }}
     />
   );
