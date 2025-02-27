@@ -3,7 +3,7 @@ const audio = new Audio(
   "https://github.com/muslimDevCommunity/tasbeeh/blob/main/asset/audio/Pocket.mp3?raw=true",
 );
 
-const GOALS = [50, 100, 500];
+const GOALS = [33, 50, 100, 500];
 
 // Fix local storage reading by properly parsing the stored value
 let clickCount = localStorage.getItem("clickcount")
@@ -26,8 +26,9 @@ window.addEventListener("touchstart", () => {
   checkGoal();
 });
 
-window.addEventListener("keydown", (i) => {
-  if (i.keyCode == 32 || i.keyCode == 13 || i.keyCode == 38) {
+window.addEventListener("keydown", (e) => {
+  // Replace deprecated keyCode with key property
+  if (e.key === " " || e.key === "Space" || e.key === "Enter" || e.key === "ArrowUp") {
     updateNum();
     tasbih.innerHTML = clickCount;
     checkGoal();
@@ -61,4 +62,5 @@ function reset() {
   localStorage.removeItem("clickcount");
   clickCount = -1; // because touchstart and click event will increment the counter
   tasbih.innerHTML = clickCount;
+  location.reload();
 }
