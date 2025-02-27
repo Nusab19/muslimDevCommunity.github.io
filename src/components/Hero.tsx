@@ -63,12 +63,12 @@ const Hero = () => {
         <h2
           className={`-mt-10 mb-6 text-xl font-bold tracking-wide text-accent md:text-2xl ${notoNaskhArabic.className}`}
         >
-          بسم الله الرحمن الرحيم
+          بِسْــــــــــــــــــــــمِ ﷲِالرَّحْمَنِ الرَّحِيم
         </h2>
-        <h1 className="mb-4 text-4xl font-bold text-foreground">
+        <h1 className="mb-4 text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
           Muslim Developers Community
         </h1>
-        <p className="mb-8 text-xl text-foreground/80">
+        <p className="mb-8 text-base text-foreground/80 md:text-xl">
           Connect, Learn, and Grow with Fellow Muslim Developers
         </p>
         <Button className="bg-accent font-medium text-accent-foreground hover:bg-accent/90">

@@ -1,9 +1,21 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Button } from "./ui/button";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+  DrawerTitle,
+  DrawerDescription,
+} from "./ui/drawer";
 
 import { TelegramChannelLink, GithubOrgLink } from "@/lib/config";
+import { Separator } from "./ui/separator";
 
 const LINKS = {
   Telegram: TelegramChannelLink,
@@ -11,6 +23,10 @@ const LINKS = {
 };
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDrawer = () => setIsOpen(!isOpen);
+
   return (
     <MaxWidthWrapper className="flex items-center justify-between px-4 py-4">
       <div className="flex items-center justify-center gap-2">
@@ -25,12 +41,14 @@ const Navbar = () => {
           MDC
         </span>
       </div>
+
+      {/* Desktop navigation */}
       <div className="hidden space-x-2 md:block">
         {Object.entries(LINKS).map(([name, url]) => (
           <Button
             key={name}
             variant="ghost"
-            className="text-foreground/90"
+            className="font-mono text-foreground/90"
             asChild
           >
             <Link href={url} target="_blank">
@@ -39,8 +57,88 @@ const Navbar = () => {
           </Button>
         ))}
       </div>
+
+      {/* Mobile navigation */}
+      <Drawer open={isOpen} onOpenChange={setIsOpen}>
+        <DrawerTrigger asChild className="md:hidden">
+          <Button variant="ghost" size="icon" onClick={toggleDrawer}>
+            <BurgerIcon isOpen={isOpen} />
+            <span className="sr-only">Toggle menu</span>
+          </Button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <DrawerTitle className="sr-only">Navigation Menu</DrawerTitle>
+          <DrawerDescription className="sr-only">
+            Access community links
+          </DrawerDescription>
+          <div className="mb-16 mt-8 flex flex-col gap-2 p-2">
+            {Object.entries(LINKS).map(([name, url]) => (
+              <>
+                <Button
+                  key={name}
+                  variant="ghost"
+                  className="justify-start font-mono text-foreground/90"
+                  asChild
+                >
+                  <Link href={url} target="_blank">
+                    {name}
+                  </Link>
+                </Button>
+                <Separator />
+              </>
+            ))}
+          </div>
+        </DrawerContent>
+      </Drawer>
     </MaxWidthWrapper>
   );
 };
+
+const BurgerIcon = ({ isOpen }: { isOpen: boolean }) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <motion.path
+      fill="transparent"
+      strokeWidth="3"
+      stroke="currentColor"
+      strokeLinecap="round"
+      variants={{
+        closed: { d: "M 2 2.5 L 20 2.5" },
+        open: { d: "M 3 16.5 L 17 2.5" },
+      }}
+      animate={isOpen ? "open" : "closed"}
+    />
+    <motion.path
+      fill="transparent"
+      strokeWidth="3"
+      stroke="currentColor"
+      strokeLinecap="round"
+      d="M 2 9.423 L 20 9.423"
+      variants={{
+        closed: { opacity: 1 },
+        open: { opacity: 0 },
+      }}
+      animate={isOpen ? "open" : "closed"}
+      transition={{ duration: 0.1 }}
+    />
+    <motion.path
+      fill="transparent"
+      strokeWidth="3"
+      stroke="currentColor"
+      strokeLinecap="round"
+      variants={{
+        closed: { d: "M 2 16.346 L 20 16.346" },
+        open: { d: "M 3 2.5 L 17 16.346" },
+      }}
+      animate={isOpen ? "open" : "closed"}
+    />
+  </svg>
+);
 
 export default Navbar;
