@@ -15,18 +15,28 @@ const Glow: React.FC<GlowProps> = ({
   className = "",
   type = "ellipse",
 }) => {
+  // Generate the radial gradient background
+  const gradient = `radial-gradient(${type}, ${colors
+    .map((color, index) => `${color} ${index * 30}%`)
+    .join(", ")})`;
+
+  // Extract numeric value for blur (assumes the blur value is in pixels)
+  const blurValue = parseInt(blur, 10) || 40;
+
   return (
     <div
-      className={`pointer-events-none absolute overflow-hidden ${className}`}
+      className={`pointer-events-none absolute overflow-hidden mix-blend-screen ${className}`}
       style={{
-        background: `radial-gradient(${type}, ${colors
-          .map((color, index) => `${color} ${index * 30}%`)
-          .join(", ")})`,
+        background: gradient,
         opacity: opacity,
-        // Add both WebkitFilter and filter for Safari compatibility
-        WebkitFilter: `blur(${blur})`,
+        // Standard CSS filter
         filter: `blur(${blur})`,
-        mixBlendMode: "screen",
+        // Vendor prefixes for various browsers
+        WebkitFilter: `blur(${blur})`,
+        // Force hardware acceleration in Safari
+        transform: "translate3d(0,0,0)",
+        WebkitTransform: "translate3d(0,0,0)",
+        willChange: "filter",
       }}
     />
   );

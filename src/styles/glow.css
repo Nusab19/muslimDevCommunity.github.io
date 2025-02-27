@@ -1,0 +1,19 @@
+.glow {
+  position: absolute;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse,
+    var(--colors, #219ebc, #003049, #ffd166)
+  );
+  opacity: var(--opacity, 0.3);
+  filter: blur(var(--blur, 40px));
+  -webkit-filter: blur(var(--blur, 40px));
+}
