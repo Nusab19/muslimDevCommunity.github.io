@@ -1,4 +1,4 @@
-const tasbih = document.getElementById("tasbih");
+const tasbeeh = document.getElementById("tasbeeh");
 const audio = new Audio(
   "https://github.com/muslimDevCommunity/tasbeeh/blob/main/asset/audio/Pocket.mp3?raw=true",
 );
@@ -11,11 +11,11 @@ let clickCount = localStorage.getItem("clickcount")
   : 0;
 
 // Update the display immediately with the correct initial value
-tasbih.innerHTML = clickCount;
+tasbeeh.innerHTML = clickCount;
 
 window.addEventListener("click", () => {
   updateNum();
-  tasbih.innerHTML = clickCount;
+  tasbeeh.innerHTML = clickCount;
   checkGoal();
 });
 
@@ -24,7 +24,7 @@ window.addEventListener("keydown", (e) => {
   // Replace deprecated keyCode with key property
   if (e.key === " " || e.key === "Space" || e.key === "Enter" || e.key === "ArrowUp") {
     updateNum();
-    tasbih.innerHTML = clickCount;
+    tasbeeh.innerHTML = clickCount;
     checkGoal();
   }
 });
@@ -55,6 +55,6 @@ initGoal();
 function reset() {
   localStorage.removeItem("clickcount");
   clickCount = -1; // because touchstart and click event will increment the counter
-  tasbih.innerHTML = clickCount;
+  tasbeeh.innerHTML = clickCount;
   location.reload();
 }
