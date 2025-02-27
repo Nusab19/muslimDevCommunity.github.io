@@ -19,12 +19,6 @@ window.addEventListener("click", () => {
   checkGoal();
 });
 
-// Fix typo in "touchstart" event name
-window.addEventListener("touchstart", () => {
-  updateNum();
-  tasbih.innerHTML = clickCount;
-  checkGoal();
-});
 
 window.addEventListener("keydown", (e) => {
   // Replace deprecated keyCode with key property
