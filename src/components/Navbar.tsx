@@ -3,11 +3,11 @@ import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Button } from "./ui/button";
 
-import { TelegramChannelLink, GithubRepoLink } from "@/lib/config";
+import { TelegramChannelLink, GithubOrgLink } from "@/lib/config";
 
 const LINKS = {
   Telegram: TelegramChannelLink,
-  Github: GithubRepoLink,
+  Github: GithubOrgLink,
 };
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
     <MaxWidthWrapper className="flex items-center justify-between px-4 py-4">
       <div className="flex items-center justify-center gap-2">
         <Image
-          src="/images/logo.jpeg"
+          src="images/logo.jpeg"
           alt="Muslim Developers Community"
           width={45}
           height={45}
