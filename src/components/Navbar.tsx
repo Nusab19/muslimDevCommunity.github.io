@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import MaxWidthWrapper from "./MaxWidthWrapper";
@@ -31,13 +30,6 @@ const Navbar = () => {
   return (
     <MaxWidthWrapper className="flex items-center justify-between px-4 py-4">
       <div className="flex items-center justify-center gap-2">
-        {/* <Image
-          src="images/logo.jpeg"
-          alt="Muslim Developers Community"
-          width={45}
-          height={45}
-          className="rounded-md"
-        /> */}
         <span className="text-2xl font-black tracking-tighter text-accent">
           MDC
         </span>
@@ -63,7 +55,7 @@ const Navbar = () => {
       <Drawer open={isOpen} onOpenChange={setIsOpen}>
         <DrawerTrigger asChild className="md:hidden">
           <Button variant="ghost" size="icon" onClick={toggleDrawer}>
-            <BurgerIcon isOpen={isOpen} />
+            <MenuIcon isOpen={isOpen} />
             <span className="sr-only">Toggle menu</span>
           </Button>
         </DrawerTrigger>
@@ -94,73 +86,62 @@ const Navbar = () => {
   );
 };
 
-const BurgerIcon = ({ isOpen }: { isOpen: boolean }) => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    {isOpen ? (
-      <>
-        <motion.path
-          key="path1"
-          fill="transparent"
-          strokeWidth="3"
-          stroke="currentColor"
-          strokeLinecap="round"
-          d="M 3 16.5 L 17 2.5"
-        />
-        <motion.path
-          key="path2"
-          fill="transparent"
-          strokeWidth="3"
-          stroke="currentColor"
-          strokeLinecap="round"
-          d="M 2 9.423 L 20 9.423"
-          opacity="0"
-        />
-        <motion.path
-          key="path3"
-          fill="transparent"
-          strokeWidth="3"
-          stroke="currentColor"
-          strokeLinecap="round"
-          d="M 3 2.5 L 17 16.346"
-        />
-      </>
-    ) : (
-      <>
-        <motion.path
-          key="path4"
-          fill="transparent"
-          strokeWidth="3"
-          stroke="currentColor"
-          strokeLinecap="round"
-          d="M 2 2.5 L 20 2.5"
-        />
-        <motion.path
-          key="path5"
-          fill="transparent"
-          strokeWidth="3"
-          stroke="currentColor"
-          strokeLinecap="round"
-          d="M 2 9.423 L 20 9.423"
-          opacity="1"
-        />
-        <motion.path
-          key="path6"
-          fill="transparent"
-          strokeWidth="3"
-          stroke="currentColor"
-          strokeLinecap="round"
-          d="M 2 16.346 L 20 16.346"
-        />
-      </>
-    )}
-  </svg>
-);
+const MenuIcon = ({ isOpen }: { isOpen: boolean }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {/* First line (top) */}
+      <motion.line
+        x1="4"
+        y1="6"
+        x2="20"
+        y2="6"
+        initial={false}
+        animate={isOpen ? 
+          { x1: 4, y1: 4, x2: 20, y2: 20 } : 
+          { x1: 4, y1: 6, x2: 20, y2: 6 }
+        }
+        transition={{ duration: 0.3 }}
+      />
+      
+      {/* Middle line */}
+      <motion.line
+        x1="4"
+        y1="12"
+        x2="20"
+        y2="12"
+        initial={false}
+        animate={isOpen ? 
+          { opacity: 0 } : 
+          { opacity: 1 }
+        }
+        transition={{ duration: 0.2 }}
+      />
+      
+      {/* Bottom line */}
+      <motion.line
+        x1="4"
+        y1="18"
+        x2="20"
+        y2="18"
+        initial={false}
+        animate={isOpen ? 
+          { x1: 4, y1: 20, x2: 20, y2: 4 } : 
+          { x1: 4, y1: 18, x2: 20, y2: 18 }
+        }
+        transition={{ duration: 0.3 }}
+      />
+    </svg>
+  );
+};
 
 export default Navbar;
