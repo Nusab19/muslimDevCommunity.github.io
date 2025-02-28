@@ -45,21 +45,21 @@ const Hero = () => {
           type="ellipse at top"
           colors={["#000000", "#000000"]}
           opacity={0.9}
-          className="left-1/2 top-10 h-[23rem] w-[60vw] -translate-x-1/2"
+          className="left-1/2 top-10 h-[23rem] w-[50vw] -translate-x-1/2"
         />
         <Glow
           blur="7vw"
           type="ellipse at top"
           colors={["#219ebc", "#219ebc"]}
           opacity={0.1}
-          className="left-0 top-20 h-[15rem] w-[60vw]"
+          className="left-0 top-20 h-[15rem] w-[50vw]"
         />
         <Glow
           blur="5vw"
           type="ellipse at top"
           colors={["#231942", "#231942"]}
           opacity={0.3}
-          className="-top-32 right-0 h-[23rem] w-[60vw]"
+          className="-top-32 right-0 h-[23rem] w-[50vw]"
         />
       </div>
 
